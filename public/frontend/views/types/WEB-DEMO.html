@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web网页 demo</title>
+    <!--<link rel="icon" type="image/x-icon" href="//statics.ys7.com/mall/statics/site/favicon.ico" />-->
+    <script src="./ckplayer/ckplayer.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready(function(){
+         var value = {};
+        $("#button1").click(function(){
+            value[1] = !value[1];
+             console.log(value[1]);
+            if (value[1] == false) {
+                $(this).css("background-image","url(\"./image/OFF.png\")");
+                $("#warmDevice1").css("background-color","#43CD80");
+            }
+            else{
+                $(this).css("background-image","url(\"./image/ON.png\")");
+                $("#warmDevice1").css("background-color","#FA5267");
+            }   
+        });
+        $("#button2").click(function(){
+            value[2] = !value[2];
+             console.log(value[2]);
+            if (value[2] == false) {
+                $(this).css("background-image","url(\"./image/OFF.png\")");
+                $("#warmDevice2").css("background-color","#43CD80");
+            }
+            else{
+                $(this).css("background-image","url(\"./image/ON.png\")");
+                $("#warmDevice2").css("background-color","#FA5267");
+            }   
+        });
+        $("#button3").click(function(){
+            value[3] = !value[3];
+             console.log(3);
+            if (value[3] == false) {
+                $(this).css("background-image","url(\"./image/OFF.png\")");
+                $("#warmDevice3").css("background-color","#43CD80");
+            }
+            else{
+                $(this).css("background-image","url(\"./image/ON.png\")");
+                $("#warmDevice3").css("background-color","#FA5267");
+            }   
+        });
+        $("#button4").click(function(){
+            value[4] = !value[4];
+            console.log(value[4]);
+            if (value[4] == false) {
+                $(this).css("background-image","url(\"./image/OFF.png\")");
+                $("#warmDevice4").css("background-color","#43CD80");
+            }
+            else{
+                $(this).css("background-image","url(\"./image/ON.png\")");
+                $("#warmDevice4").css("background-color","#43CD80");
+            }   
+        });
+        $("#button5").click(function(){
+            value[5] = !value[5];
+            console.log(value[5]);
+            if (value[5] == false) {
+                $(this).css("background-image","url(\"./image/OFF.png\")");
+                $("#warmDevice5").css("background-color","#43CD80");
+            }
+            else{
+                $(this).css("background-image","url(\"./image/ON.png\")");
+                $("#warmDevice5").css("background-color","#FA5267");
+            }   
+        });
+        $("#button6").click(function(){
+            value[6] = !value[6];
+            console.log(value[6]);
+            if (value[6] == false) {
+                $(this).css("background-image","url(\"./image/OFF.png\")");
+                $("#warmDevice6").css("background-color","#43CD80");
+            }
+            else{
+                $(this).css("background-image","url(\"./image/ON.png\")");
+                $("#warmDevice6").css("background-color","#FA5267");
+            }   
+        });
+        $("#button7").click(function(){
+            value[7] = !value[7];
+            console.log(value[7]);
+            if (value[7] == false) {
+                $(this).css("background-image","url(\"./image/OFF.png\")");
+                $("#warmDevice7").css("background-color","#43CD80");
+            }
+            else{
+                $(this).css("background-image","url(\"./image/ON.png\")");
+                $("#warmDevice7").css("background-color","#FA5267");
+            }   
+        });
+    });
+    </script>
+    <link rel="stylesheet" href="./warm.css">
+</head>
+
+<body>
+    <div id="monitorView">
+        <div class="textCenter1">监测</div>
+        <div id="monitorView1">
+            <div class="videoView">
+                <div class="textLeft1">摄像头1</div>
+                <div class="videoPlay" id="videoPlay1"></div>
+            </div>
+            <div class="videoView">
+                <div class="textLeft1">摄像头2</div>
+                <div class="videoPlay" id="videoPlay2"></div>
+            </div>
+            <div class="videoView">
+                <div class="textLeft1">温湿度</div>
+                <div class="THView" id="HView1"></div>
+            </div>
+        </div>
+    </div>
+    <div id="roomView">
+
+        <div class="textCenter1">房间设备状态</div>
+        <div class="roomView1" id="roomView1">
+            <div class="warmDeviceA textCenter" id="warmDevice1"><label>1</label></div>
+            <div class="warmDeviceB textCenter" id="warmDevice2"><label>2</label></div>
+            <div class="warmDeviceC textCenter" id="warmDevice3"><label>3</label></div>
+            <div class="warmDeviceC textCenter" id="warmDevice4"><label>4</label></div>
+            <div class="warmDeviceC textCenter" id="warmDevice5"><label>5</label></div>
+            <div class="warmDeviceB textCenter" id="warmDevice6"><label>6</label></div>
+            <div class="warmDeviceA textCenter" id="warmDevice7"><label>7</label></div>
+            <div class="monitorTL textCenter" id="monitor1"><label>1</label></div>
+            <div class="monitorBR textCenter" id="monitor2"><label>2</label></div>
+            <div class="BGLA" id="BGL1"></div>
+            <div class="TH_A textCenter" id="TH1"><label>1</label></div>
+            <div class="TH_A textCenter" id="TH2"><label>2</label></div>
+            <div class="TH_A textCenter" id="TH3"><label>3</label></div>
+            <div class="door_A" id="door1"></div>
+        </div>
+    </div>
+    <div id="controlView">
+        <div class="textCenter1">控制</div>
+        <div id="controlView1">
+            <div class="videoView">
+                <div class="textLeft1">暖气片控制</div>
+                <div class="warmControl" id="warmControl1">
+                    <div class="button textCenter" id="button1">1</div>
+                    <div class="button textCenter" id="button2"><label>2</label></div>
+                    <div class="button textCenter" id="button3"><label>3</label></div>
+                    <div class="button textCenter" id="button4"><label>4</label></div>
+                    <div class="button textCenter" id="button5"><label>5</label></div>
+                    <div class="button textCenter" id="button6"><label>6</label></div>
+                    <div class="button textCenter" id="button7"><label>7</label></div>
+                </div>
+            </div>
+        </div>
+        <div class="textCenter1">注释</div>
+        <div class="noteView"><img src="./image/note.png" /></div>
+    </div>
+
+    <script>
+        var flashvars1,flashvars2;
+        flashvars1={
+            f: 'ckplayer/m3u8.swf',
+            a: 'http://hzhls01.ys7.com:7886/hcnp/472637161_1_1_1_0_www.ys7.com_6500.m3u8?d4ed820bd1f74c12b04873a24d2c0471', //此处填写购买获取到的视频播放地址
+            c: 0,
+            p: 1,
+            s: 4,
+            lv: 1
+        };
+        flashvars2={
+            f: 'ckplayer/m3u8.swf',
+            a: 'http://hzhls01.ys7.com:7886/hcnp/472637161_1_1_1_0_www.ys7.com_6500.m3u8?d4ed820bd1f74c12b04873a24d2c0471', //此处填写购买获取到的视频播放地址
+            c: 0,
+            p: 1,
+            s: 4,
+            lv: 1
+        };
+        var params = {bgcolor: '#FFF', allowFullScreen: true, allowScriptAccess: 'always', wmode: 'transparent'};
+        CKobject.embedSWF("./ckplayer/ckplayer.swf", "videoPlay1", "video", "100%", "100%", flashvars1, params);
+        CKobject.embedSWF("./ckplayer/ckplayer.swf", "videoPlay2", "video", "100%", "100%", flashvars2, params);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+var debug = require('debug')('iotgo');
+var app = require('../app');
+var websocket = require('../routes/websocket');
+
+app.set('port', process.env.PORT || 4000);
+
+var server = app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + server.address().port);
+  debug('Express server listening on port ' + server.address().port);
+});
+
+// Launch WebSocket server
+websocket(server);

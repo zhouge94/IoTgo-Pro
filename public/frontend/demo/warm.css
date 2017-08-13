@@ -1,0 +1,331 @@
+body {
+	background-color: #555555;
+	margin: 0px;
+	/*width: 1920px;
+	height: 1080px;*/
+}
+
+#monitorView {
+	float: left;
+	margin: 0px;
+	width: 595px;
+	height: 1080px;
+}
+
+#monitorView1 {
+	margin-top: 18px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 90px;
+	width: 400px;
+	height: 900px;
+	background-color: #D8D8D8;
+	border: 1px solid #D8D8D8;
+	border-radius: 8px;
+}
+
+#roomView {
+	float: left;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px;
+	width: 700px;
+	height: 1080px;
+}
+
+.roomView1 {
+	position: absolute;
+	left: auto;
+	top: 90px;
+	width: 660px;
+	height: 850px;
+	background-color: #FFFFFF;
+	border: 30px solid #D8D8D8;
+	border-width: 25px 20px;
+	border-radius: 8px;
+	/*background-image: url("./image/room.png");*/
+	-webkit-user-select: none; /*webkit浏览器*/
+-ms-user-select: none; /*IE10*/
+-khtml-user-select: none; /*早期浏览器*/
+user-select: none;
+}
+
+.roomView1 img {
+	max-width: 700px;
+	_width: expression(this.width > 700 ? "700px": this.width);
+}
+
+#controlView {
+	float: left;
+	margin: 0px;
+	width: 610px;
+	height: 1080px;
+}
+
+#controlView1 {
+	margin-top: 18px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	width: 400px;
+	height: 570px;
+	background-color: #D8D8D8;
+	border: 1px solid #D8D8D8;
+	border-radius: 8px;
+}
+
+.noteView {
+	margin-top: 18px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 90px;
+	width: 400px;
+	height: 212px;
+}
+
+.videoView {
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px;
+	width: 322px;
+	height: 212px;
+	border: 1px solid #D8D8D8;
+}
+
+.videoPlay {
+	margin-top: 8px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px;
+	width: 320px;
+	height: 180px;
+	background-color: #000000;
+}
+
+.THView {
+	margin-top: 8px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px;
+	width: 320px;
+	height: 150px;
+	background-color: #FFFFFF;
+	background-image: url("./image/TH.png");
+	border: 1px solid #D8D8D8;
+}
+
+.THView img {
+	max-width: 320px;
+	_width: expression(this.width > 320 ? "320px": this.width);
+}
+
+.textCenter {
+	text-align: center;
+	font-family: STHeitiSC-Medium;
+	font-size: 20px;
+	color: #000000;
+}
+
+.textCenter1 {
+	margin-top: 36px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px;
+	text-align: center;
+	height: 36px;
+	font-family: STHeitiSC-Medium;
+	font-size: 24px;
+	color: #FFFFFF;
+	letter-spacing: 0px;
+}
+
+.textLeft1 {
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px;
+	text-align: left;
+	width: 320px;
+	height: 24px;
+	font-family: STHeitiSC-Medium;
+	font-size: 24px;
+	letter-spacing: 0px;
+}
+
+.warmControl {
+	margin-top: 8px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px;
+	width: 320px;
+	height: 360px;
+	border: 1px solid #555555;
+	border-radius: 8px;
+}
+
+.button {
+	float: left;
+	margin: 10px;
+	padding: 25px 85px 25px 35px;
+	width: 20px;
+	height: 20px;
+	background-color: #9B9B9B;
+	background-image: url("./image/OFF.png");
+	-moz-user-select: none; /*火狐*/
+-webkit-user-select: none; /*webkit浏览器*/
+-ms-user-select: none; /*IE10*/
+-khtml-user-select: none; /*早期浏览器*/
+user-select: none;
+}
+
+.door_A{
+	width: 120px;
+	height: 25px;
+	background-color: #50E3C2;
+}
+
+.fullScreen{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	margin: 0px;
+	padding: 0px;
+	padding-left: 0px;
+	width: 1920px;
+	height: 1080px;	
+	background-color: #50E3C2;
+}
+
+#door1{
+	position: absolute;
+	left: 520px;
+	top: 850px;
+}
+
+.BGLA {
+	width: 48px;
+	height: 38px;
+	background-image: url("./image/BGL.png");
+}
+
+#BGL1 {
+	position: absolute;
+	left: 612px;
+	top: 0px;
+}
+
+.TH_A {
+	padding: 12px 0px;
+	width: 24px;
+	height: 20px;
+	background-color: #4A90E2;
+}
+
+#TH1 {
+	position: absolute;
+	left: 251px;
+	top: 333px;
+}
+
+#TH2 {
+	position: absolute;
+	left: 318px;
+	top: 333px;
+}
+
+#TH3 {
+	position: absolute;
+	left: 385px;
+	top: 333px;
+}
+
+.monitorTL {
+	padding-top: 30px;
+	padding-left: 30px;
+	width: 20px;
+	height: 20px;
+	background-image: url("./image/monitorTL.png");
+}
+
+.monitorBR {
+	padding-right: 30px;
+	padding-bottom: 30px;
+	width: 20px;
+	height: 20px;
+	background-image: url("./image/monitorBR.png");
+}
+
+#monitor1 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#monitor2 {
+	position: absolute;
+	left: 610px;
+	top: 800px;
+}
+
+.warmDeviceA {
+	padding: 35px 0px;
+	width: 33px;
+	height: 20px;
+	background-color: #9B9B9B;
+}
+
+.warmDeviceB {
+	padding: 60px 0px;
+	width: 33px;
+	height: 20px;
+	background-color: #9B9B9B;
+}
+
+.warmDeviceC {
+	padding: 6.5px 43px;
+	width: 20px;
+	height: 20px;
+	background-color: #9B9B9B;
+}
+
+#warmDevice1 {
+	position: absolute;
+	left: 0px;
+	top: 515px;
+}
+
+#warmDevice2 {
+	position: absolute;
+	left: 0px;
+	top: 168px;
+}
+
+#warmDevice3 {
+	position: absolute;
+	left: 97px;
+	top: 0px;
+}
+#warmDevice4 {
+	position: absolute;
+	left: 277px;
+	top: 0px;
+}
+#warmDevice5 {
+	position: absolute;
+	left: 458px;
+	top: 0px;
+}
+
+#warmDevice6 {
+	position: absolute;
+	left: 627px;
+	top: 168px;
+}
+
+#warmDevice7 {
+	position: absolute;
+	left: 627px;
+	top: 495px;
+}
