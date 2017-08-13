@@ -1,8 +1,8 @@
 /**
  * Dependencies
  */
-var config = require('../config');
-var protocol = require('../protocol/index');
+const config = require('../config');
+const protocol = require('../protocol/index');
 
 module.exports = function (req, res) {
 	// disable `Host` check

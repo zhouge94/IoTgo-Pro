@@ -1,14 +1,14 @@
 /**
  * Dependencies
  */
-var express = require('express');
-var db = require('../db/index');
-var http = require('./http');
-var config = require('../config');
-var user = require('./user');
-var admin = require('./admin');
-var devices = require('./devices');
-var debug = require('debug')('iotgo');
+const express = require('express');
+const db = require('../db/index');
+const http = require('./http');
+const config = require('../config');
+const user = require('./user');
+const admin = require('./admin');
+const devices = require('./devices');
+const debug = require('debug')('iotgo');
 
 /**
  * Connect to database first
@@ -25,7 +25,7 @@ db.connection.on('open', function () {
     debug('Connect to DB successful!');
 });
 
-var router = express.Router();
+const router = express.Router();
 
 router.route('/http').post(http).all(function (req, res) {
     res.send(405).end();

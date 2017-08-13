@@ -1,8 +1,8 @@
 /**
- * Private variables and functions
+ * Private letiables and functions
  */
-var types = {};
-var validateTimers = function (timers) {
+let types = {};
+let validateTimers = function (timers) {
   /*
    "timers": [{
    "enabled": true or false,
@@ -28,7 +28,7 @@ var validateTimers = function (timers) {
  * Exports
  */
 module.exports = exports = function (req) {
-  var type = req.deviceid.substr(0, 2);
+  let type = req.deviceid.substr(0, 2);
   if (!(type in types)) {
 	return true;
   }

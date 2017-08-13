@@ -1,30 +1,30 @@
 /**
  * Dependencies
  */
-var uuid = require('uuid');
-var bcrypt = require('bcrypt');
-var mongoose = require('mongoose');
+const uuid = require('uuid');
+const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
 /**
- * Private variables and functions
+ * Private letiables and functions
  */
-var Schema = mongoose.Schema;
-var hash = function (value) {
+const Schema = mongoose.Schema;
+const hash = function (value) {
   return bcrypt.hashSync(value, 10);
 };
-var transform = function (doc, ret) {
+const transform = function (doc, ret) {
   delete ret.password;
   delete ret.__v;
   return ret
 };
-var now = function () {
+const now = function () {
   return new Date();
 };
 
 /**
  * Exports
  */
-var schema = new Schema({
+const schema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, set: hash },
   apikey: { type: String, unique: true, default: uuid.v4 },

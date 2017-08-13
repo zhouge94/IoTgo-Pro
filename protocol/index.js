@@ -1,20 +1,20 @@
 /**
  * Dependencies
  */
-var methods = require('./methods');
-var validateType = require('./types');
-var interceptors = require('./interceptors');
-var EventEmitter = require('events').EventEmitter;
-var Device = require('../db/index').Device;
-var mixin = require('utils-merge');
-var config = require('../config');
-var utils = require('./utils');
+const methods = require('./methods');
+const validateType = require('./types');
+const interceptors = require('./interceptors');
+const EventEmitter = require('events').EventEmitter;
+const Device = require('../db/index').Device;
+const mixin = require('utils-merge');
+const config = require('../config');
+const utils = require('./utils');
 
 /**
- * Private variables and functions
+ * Private constiables and functions
  */
 
-var validate = function (req) {
+const validate = function (req) {
   if (!req.action || !req.apikey || !req.deviceid) {
 	return false;
   }
@@ -34,8 +34,8 @@ var validate = function (req) {
  * { 'sequenceValue': { req: reqObj, callback: callbackFunc, timer: setTimeout() } }
  */
 var pendingRequests = {};
-var removePendingRequest = function (sequence) {
-  var pending = pendingRequests[sequence];
+const removePendingRequest = function (sequence) {
+  const pending = pendingRequests[sequence];
   if (!pending) return;
   console.log('Request Timeout');
   pending.callback(interceptors(pending.req, {error: 504, reason: 'Request Timeout'}));
@@ -113,7 +113,7 @@ exports.postRequest = function (req, callback) {
 exports.postResponse = function (res) {
   console.log('postResponse');
   if (!res.sequence || !pendingRequests[res.sequence]) return;
-  var pending = pendingRequests[res.sequence];
+  const pending = pendingRequests[res.sequence];
   clearTimeout(pending.timer);
 
   if (res.error === 0) {

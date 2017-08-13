@@ -1,7 +1,7 @@
 /**
  * Dependencies
  */
-var mixin = require('utils-merge');
+let mixin = require('utils-merge');
 
 /**
  * Exports
@@ -16,11 +16,11 @@ exports.fromDevice = function (req) {
 };
 
 exports.transformTimers = function (timers) {
-  var result = [];
+  let result = [];
   timers.forEach(function (timer) {
 	if (timer && timer.enabled && timer.type === 'once' &&
 	  timer.at && !Number.isNaN(Date.parse(timer.at)) && timer.do) {
-	  var timeLeft = Math.floor((Date.parse(timer.at) - Date.now()) / 1000);
+	  let timeLeft = Math.floor((Date.parse(timer.at) - Date.now()) / 1000);
 	  if (timeLeft <= 0) return;
 
 	  result.push({
@@ -42,7 +42,7 @@ exports.isFactoryDeviceid = function (deviceid) {
 };
 
 exports.transformRequest = function (req) {
-  var _req = mixin({}, req);
+  let _req = mixin({}, req);
   if (_req.params) {
 	_req.params = mixin({}, req.params);
 

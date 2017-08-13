@@ -1,11 +1,11 @@
 /**
  * Dependencies
  */
-var express = require('express');
-var expressJwt = require('express-jwt');
-var config = require('../config');
-var db = require('../db/index');
-var Device = db.Device;
+const express = require('express');
+const expressJwt = require('express-jwt');
+const config = require('../config');
+const db = require('../db/index');
+const Device = db.Device;
 
 /**
  * Exports
@@ -19,8 +19,8 @@ exports.use(expressJwt(config.jwt).unless({
 
 // Registration
 exports.route('/hire').get(function (req, res) {
-    var longitude = req.query.longitude;//经度
-    var latitude = req.query.latitude;//纬度
+    const longitude = req.query.longitude;//经度
+    const latitude = req.query.latitude;//纬度
     if (!latitude || !longitude) {
         res.send({
             status: '1',

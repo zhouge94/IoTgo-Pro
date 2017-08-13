@@ -1,25 +1,25 @@
 /**
  * Dependencies
  */
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 /**
- * Private variables and functions
+ * Private letiables and functions
  */
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var now = function () {
+const now = function () {
   return new Date();
 };
 
-var empty = function () {
+const empty = function () {
   return {};
 };
 
 /**
  * Exports
  */
-var deviceStatus = new Schema({
+const deviceStatus = new Schema({
   deviceid: { type: String, required: true, index: true, match: /^[0-9a-f]{10}$/ },
   createdAt: { type: Date, index: true, default: now },
   status: { type: Schema.Types.Mixed, default: empty }

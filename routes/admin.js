@@ -1,20 +1,20 @@
 /**
  * Dependencies
  */
-var express = require('express');
-var expressJwt = require('express-jwt');
-var jsonWebToken = require('jsonwebtoken');
-var unless = require('express-unless');
-var config = require('../config');
-var db = require('../db/index');
-var User = db.User;
-var Device = db.Device;
-var FactoryDevice = db.FactoryDevice;
+const express = require('express');
+const expressJwt = require('express-jwt');
+const jsonWebToken = require('jsonwebtoken');
+const unless = require('express-unless');
+const config = require('../config');
+const db = require('../db/index');
+const User = db.User;
+const Device = db.Device;
+const FactoryDevice = db.FactoryDevice;
 
 /**
- * Private variables and functions
+ * Private constiables and functions
  */
-var authenticate = function (email, password, callback) {
+const authenticate = function (email, password, callback) {
   if (! email in config.admin || config.admin[email] !== password) {
     callback(null, false);
     return;
@@ -23,9 +23,9 @@ var authenticate = function (email, password, callback) {
   callback(null, { email: email, isAdmin: true });
 };
 
-var adminOnly = function (req, res, next) {
+const adminOnly = function (req, res, next) {
   if (! req.user.isAdmin) {
-    var err = new Error('Admin only area!');
+    const err = new Error('Admin only area!');
     err.status = 401;
     next(err);
   }
@@ -51,8 +51,8 @@ exports.use(adminOnly.unless({
 
 // Login
 exports.route('/login').post(function (req, res) {
-  var email = req.body.email;
-  var password = req.body.password;
+  const email = req.body.email;
+  const password = req.body.password;
   if (! email || ! password) {
     res.send({
       error: 'Email address and password must not be empty!'
@@ -77,8 +77,8 @@ exports.route('/login').post(function (req, res) {
 
 // User management
 exports.route('/users').get(function (req, res) {
-  var limit = Number(req.query.limit) || config.page.limit;
-  var skip = Number(req.query.skip) || 0;
+  const limit = Number(req.query.limit) || config.page.limit;
+  const skip = Number(req.query.skip) || 0;
 
   var condition = {};
   if (req.query.createdAtFrom) {
@@ -143,7 +143,7 @@ exports.route('/devices').get(function (req, res) {
   var limit = Number(req.query.limit) || 0;
   var skip = Number(req.query.skip) || 0;
 
-  var condition = {};
+  const condition = {};
   if (req.query.createdAtFrom) {
     condition.createdAt = condition.createdAt || {};
     condition.createdAt.$gte = new Date(req.query.createdAtFrom);
@@ -202,8 +202,8 @@ exports.route('/devices/:deviceid').get(function (req, res) {
 
 // Factory device management
 exports.route('/factorydevices').get(function (req, res) {
-  var limit = Number(req.query.limit) || 0;
-  var skip = Number(req.query.skip) || 0;
+  const limit = Number(req.query.limit) || 0;
+  const skip = Number(req.query.skip) || 0;
 
   var condition = {};
   if (req.query.createdAtFrom) {
@@ -242,7 +242,7 @@ exports.route('/factorydevices').get(function (req, res) {
 });
 
 exports.route('/factorydevices/create').post(function (req, res) {
-  var name = req.body.name,
+  const name = req.body.name,
       type = req.body.type,
       qty = Number(req.body.qty),
       createdAt = new Date();
@@ -263,10 +263,10 @@ exports.route('/factorydevices/create').post(function (req, res) {
       return;
     }
 
-    var i = 0;
-    var devices = [];
+    let i = 0;
+    let devices = [];
     do {
-      var factoryDevice = new FactoryDevice({
+      let factoryDevice = new FactoryDevice({
         name: name,
         type: type,
         deviceid: nextDeviceid,
@@ -283,7 +283,7 @@ exports.route('/factorydevices/create').post(function (req, res) {
     if (req.query.file) {
       res.attachment(name + '-' + type + '-' + qty + '.csv');
 
-      var download = [[ 'name', 'type', 'deviceid', 'apikey' ]];
+      const download = [[ 'name', 'type', 'deviceid', 'apikey' ]];
       devices.forEach(function (device) {
         download.push([
           device.name, device.type, device.deviceid, device.apikey

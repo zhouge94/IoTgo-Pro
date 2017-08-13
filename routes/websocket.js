@@ -1,18 +1,18 @@
 /**
  * Dependencies
  */
-var Server = require('ws').Server;
-var protocol = require('../protocol/index');
-var mixin = require('utils-merge');
+const Server = require('ws').Server;
+const protocol = require('../protocol/index');
+const mixin = require('utils-merge');
 
 /**
  * Private variables and functions
  */
 
-var devices = {}; // { deviceid: [ws, ws, ws] }
-var apps = {};  // { deviceid: [ws, ws, ws] }
+let devices = {}; // { deviceid: [ws, ws, ws] }
+let apps = {};  // { deviceid: [ws, ws, ws] }
 
-var clean = function (ws) {
+const clean = function (ws) {
   ws.devices.forEach(function (deviceid) {
     if (Array.isArray(devices[deviceid]) && devices[deviceid][0] === ws) {
       delete devices[deviceid];
@@ -23,7 +23,7 @@ var clean = function (ws) {
       });
     }
 
-    var pos, wsList = apps[deviceid];
+    let pos, wsList = apps[deviceid];
     if (wsList && (pos = wsList.indexOf(ws)) !== -1) {
       wsList.splice(pos, 1);
       if (wsList.length === 0) delete apps[deviceid];
@@ -31,13 +31,13 @@ var clean = function (ws) {
   });
 };
 
-var Types = {
+const Types = {
   'REQUEST': 1,
   'RESPONSE': 2,
   'UNKNOWN': 0
 };
 
-var getType = function (msg) {
+const getType = function (msg) {
   if (msg.action && msg.deviceid && msg.apikey) return Types.REQUEST;
 
   if (typeof msg.error === 'number') return Types.RESPONSE;
@@ -45,11 +45,11 @@ var getType = function (msg) {
   return Types.UNKNOWN;
 };
 
-var postRequest = function (ws, req) {
+const postRequest = function (ws, req) {
   if (req.ws && req.ws === ws) {
     return;
   }
-  var msg = JSON.stringify(req, function (key, value) {
+  const msg = JSON.stringify(req, function (key, value) {
     if (key === 'ws' || key === 'mq') {
       // exclude property ws from resulting JSON string
       return undefined;
@@ -60,7 +60,7 @@ var postRequest = function (ws, req) {
   ws.send(msg);
 };
 
-var postRequestToApps = function (req) {
+const postRequestToApps = function (req) {
   apps[req.deviceid] && apps[req.deviceid].forEach(function (ws) {
     console.log('WB postRequestToApps');
     postRequest(ws, req);
@@ -87,7 +87,7 @@ protocol.on('app.update', function (req) {
  * Exports
  */
 module.exports = function (httpServer) {
-  var server = new Server({
+  const server = new Server({
     server: httpServer,
     path: '/api/ws'
   });

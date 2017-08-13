@@ -1,17 +1,17 @@
 /**
  * Dependencies
  */
-var mongoose = require('mongoose');
-var uuid = require('uuid');
+const mongoose = require('mongoose');
+const uuid = require('uuid');
 
 /**
- * Private variables and functions
+ * Private letiables and functions
  */
-var Schema = mongoose.Schema;
-var incDeviceid = function (deviceid) {
+const Schema = mongoose.Schema;
+const incDeviceid = function (deviceid) {
   // Deviceid should be a string of 10 characters
   // First 2 characters form the type of device
-  var type = deviceid.substr(0, 2);
+  const type = deviceid.substr(0, 2);
   deviceid = (parseInt(deviceid.substr(2), 16) + 1).toString(16);
 
   if (deviceid.length > 8) {
@@ -28,7 +28,7 @@ var incDeviceid = function (deviceid) {
 /**
  * Exports
  */
-var schema = new Schema({
+const schema = new Schema({
   name: { type: String, required: true },
   type: { type: String, required: true, index: true, match: /^[0-9a-f]{2}$/ },
   deviceid: { type: String, required: true, index: true, match: /[0-9a-f]{10}/ },
@@ -60,7 +60,7 @@ schema.static('getNextDeviceid', function (type, callback) {
         return;
       }
 
-      var deviceid = incDeviceid(device.deviceid);
+      let deviceid = incDeviceid(device.deviceid);
       if (! deviceid) {
         callback('Not enough device ids available!');
         return;

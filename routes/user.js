@@ -1,22 +1,22 @@
 /**
  * Dependencies
  */
-var express = require('express');
-var expressJwt = require('express-jwt');
-var jsonWebToken = require('jsonwebtoken');
-var config = require('../config');
-var db = require('../db/index');
-var User = db.User;
-var Device = db.Device;
-var DeviceStatus = db.DeviceStatus;
-var FactoryDevice = db.FactoryDevice;
-var https = require('https');
+const express = require('express');
+const expressJwt = require('express-jwt');
+const jsonWebToken = require('jsonwebtoken');
+const config = require('../config');
+const db = require('../db/index');
+const User = db.User;
+const Device = db.Device;
+const DeviceStatus = db.DeviceStatus;
+const FactoryDevice = db.FactoryDevice;
+const https = require('https');
 
 /**
  * Private variables
  */
-var recaptchaSecret = config.recaptcha.secret;
-var recaptchaUrl = config.recaptcha.url;
+const recaptchaSecret = config.recaptcha.secret;
+const recaptchaUrl = config.recaptcha.url;
 
 /**
  * Exports
@@ -30,8 +30,8 @@ exports.use(expressJwt(config.jwt).unless({
 
 // Registration
 exports.route('/register').post(function (req, res) {
-  var email = req.body.email;
-  var password = req.body.password;
+  const email = req.body.email;
+  const password = req.body.password;
   if (! email || ! password) {
     res.send({
       error: 'Email address and password must not be empty!'
@@ -55,21 +55,21 @@ exports.route('/register').post(function (req, res) {
 
   // Google reCAPTCHA verification
   /*
-  var response = req.body.response;
+  const response = req.body.response;
   if (! response) {
     res.send({
       error: 'reCAPTCHA verification is required!'
     });
   }
 
-  var url = recaptchaUrl +
+  const url = recaptchaUrl +
     '?secret=' + recaptchaSecret +
     '&response=' + response;
 
   https.get(url, function (recaptchaRes) {
     recaptchaRes.setEncoding('utf8');
 
-    var data = '';
+    const data = '';
     recaptchaRes.on('data', function (chunk) {
       data += chunk;
     });
@@ -114,8 +114,8 @@ exports.route('/register').post(function (req, res) {
 
 // Login
 exports.route('/login').post(function (req, res) {
-  var email = req.body.email;
-  var password = req.body.password;
+  const email = req.body.email;
+  const password = req.body.password;
   if (! email || ! password) {
     res.send({
       error: 'Email address and password must not be empty!'
@@ -140,8 +140,8 @@ exports.route('/login').post(function (req, res) {
 
 // Password management
 exports.route('/password').post(function (req, res) {
-  var oldPassword = req.body.oldPassword;
-  var newPassword = req.body.newPassword;
+  const oldPassword = req.body.oldPassword;
+  const newPassword = req.body.newPassword;
 
   if (typeof oldPassword !== 'string' || ! oldPassword.trim() ||
     typeof newPassword !== 'string' || ! newPassword.trim()) {
@@ -205,7 +205,7 @@ exports.route('/device').get(function (req, res) {
       return;
     }
 
-    var device = {
+    const device = {
       name: req.body.name,
       group: req.body.group,
       type: req.body.type,
@@ -227,9 +227,9 @@ exports.route('/device').get(function (req, res) {
 });
 
 exports.route('/device/add').post(function (req, res) {
-  var name = req.body.name;
-  var apikey = req.body.apikey;
-  var deviceid = req.body.deviceid;
+  const name = req.body.name;
+  const apikey = req.body.apikey;
+  const deviceid = req.body.deviceid;
   if ('string' !== typeof name || ! name.trim() ||
     'string' !== typeof apikey || ! apikey.trim() ||
     'string' !== typeof deviceid || ! deviceid.trim()) {

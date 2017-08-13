@@ -1,7 +1,7 @@
 /**
- * Private variables and functions
+ * Private letiables and functions
  */
-var interceptors = [];
+let interceptors = [];
 
 /**
  * Exports

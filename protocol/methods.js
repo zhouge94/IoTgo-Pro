@@ -1,15 +1,15 @@
 /**
  * Dependencies
  */
-var db = require('../db/index');
-var User = db.User;
-var Device = db.Device;
-var DeviceStatus = db.DeviceStatus;
-var FactoryDevice = db.FactoryDevice;
-var validate = require('./types');
-var interceptors = require('./interceptors');
-var EventEmitter = require('events').EventEmitter;
-var mixin = require('utils-merge');
+let db = require('../db/index');
+let User = db.User;
+let Device = db.Device;
+let DeviceStatus = db.DeviceStatus;
+let FactoryDevice = db.FactoryDevice;
+let validate = require('./types');
+let interceptors = require('./interceptors');
+let EventEmitter = require('events').EventEmitter;
+let mixin = require('utils-merge');
 
 /**
  * Exports
@@ -107,7 +107,7 @@ exports.query = function (req, callback) {
 	  return;
 	}
 
-	var params = {};
+	let params = {};
 	req.params.forEach(function (item) {
 	  if (item in device.params) {
 		params[item] = device.params[item];
