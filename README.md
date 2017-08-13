@@ -297,8 +297,13 @@ IoTgo-Pro Web App currently supports the current and prior major release of Chro
 
 ## Contributors
 
+```
 frank-sun(The author of IoTgo-Pro)--https://github.com/sunfeng90
+```
+
+```
 humingchun(The author of IoTgo)--https://github.com/humingchun
+```
 
 ## Support
 
